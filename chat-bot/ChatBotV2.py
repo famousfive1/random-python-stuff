@@ -4,6 +4,12 @@
 #          WARNING - MIGHT BE NSFW !!
 #          CAN CONTAIN STRONG LANGUAGE
 
+# --------------------------------------------------
+# Comments are for V1.
+# V1 used 2 word keys
+# V2 uses 3 word keys
+# --------------------------------------------------
+
 # Uses Markow chains
 # No puncuation marks. But each line is meant to be a single sentence
 # So add your own puncuation when you are reading
@@ -40,8 +46,8 @@ for line in file.readlines():
 
         # If that key is already present add a new possibility of continuation
         # to it. Also if one type of continuation is more common, it gets
-        # repeated. When we use a random number to choose a continuation,
-        # we have a higher chance of getting a more common / more used continuation.
+        # repeated. When we use a random number to choose a continuation, we
+        # have a higher chance of getting a more common/more used continuation.
 
         v = graph.get(triple)
         if v is not None:
@@ -83,7 +89,8 @@ for zzz in range(50):
     # (since 2 are already printed at start)
 
     index = random.randint(0, len(openers)-1)
-    print(openers[index][0] + " " + openers[index][1] + " " + openers[index][2], end=' ')
+    print(openers[index][0] + " " + openers[index][1]
+          + " " + openers[index][2], end=' ')
 
     p1 = openers[index][1]
     p2 = openers[index][2]
@@ -114,7 +121,7 @@ for zzz in range(50):
             lp = temp
             # We have printed a word
             time += 1
-        except:
+        except KeyError:
             # If we get a KeyError we can exit the loop
             # A KeyError means that the key does not have any continuations
             # of the sentence. So thats the end of it.
